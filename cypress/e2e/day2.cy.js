@@ -16,5 +16,6 @@ describe('login', () => {
 
     cy.url().should('eq','https://www.saucedemo.com/inventory.html');
     cy.get('.header_label').should('contain','Swag Labs');
+    cy.get('.inventory_item').should('have.length.at.least',1);
   })
 })
