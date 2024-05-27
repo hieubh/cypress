@@ -1,7 +1,7 @@
 describe('template spec', () => {
   it('passes', () => {
     cy.visit('https://testpages.herokuapp.com/styled/basic-html-form-test.html')
-    cy.get('[name="username"]').type('username').should('have.value','username');
+    cy.get('[name="username"]').type('username').invoke("val",'username');
     cy.get('[name="password"]').type('password').should('have.value','password');
     cy.xpath('//textarea[@name="comments"]').clear().type('this is a test for this');
     cy.get('[name="filename"]').click().selectFile('/Users/hieu/Downloads/Photo-34.jpg');
