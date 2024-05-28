@@ -43,9 +43,13 @@ Cypress.Commands.add('submitInfo', function () {
     cy.visit(herokuSubmitPage.getUrl);
     cy.get(herokuSubmitPage.getUserName).type('username').then(
         (el) => {
-        cy.wrap(el.val()).as('inputUserName')
+        cy.wrap(el.val()).as('inputUserName');
     });
-    cy.get(herokuSubmitPage.getPassword).type('password');
+    cy.get(herokuSubmitPage.getPassword).type('password').then(
+        (el) => {
+            cy.wrap(el.val()).as('inputPassword');
+        }
+    );
     cy.xpath(herokuSubmitPage.getCommentArea).clear().type('this is comment for this section');
     cy.get(herokuSubmitPage.getuploadFileBtn).click().selectFile(herokuSubmitPage.getFileLocation);
     //action at checkboxes

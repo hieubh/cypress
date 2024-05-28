@@ -19,6 +19,4 @@ export class LoginUI {
     get getElmLoginBtn() {
         return loginBtn;
     }
-
-
 }

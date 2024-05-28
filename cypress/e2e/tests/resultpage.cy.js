@@ -9,15 +9,35 @@ describe('checking result after clicking Submit', () => {
     it('match with submit info', () => {
         cy.submitInfo();
         cy.url().should('eq', herokuResultPage.getReturnUrl);
+        //check input username vs submitted username
         cy.get(herokuResultPage.getUserName).then(
             (el) => {
                 cy.wrap(el.text()).as('submitUserName');
             }
         );
         cy.get("@submitUserName").then(
-            (el) => {
-                cy.get("@inputUserName").should('have.username', el)
+            (submitUserName) => {
+                cy.get("@inputUserName").then(
+                    (inputUserName) => {
+                        expect(submitUserName).to.eq(inputUserName);
+                    }
+                )
             }
         );
+        //check input password vs submitted password
+        cy.get(herokuResultPage.getPassword).then(
+            (el) => {
+                cy.wrap(el.text()).as('submitPassword');
+            }
+        );
+        cy.get("@submitPassword").then(
+            (submitPassword) => {
+                cy.get("@inputPassword").then(
+                    (inputPassword) => {
+                        expect(submitPassword).to.eq(inputPassword);
+                    }
+                )
+            }
+        )
     })
 })

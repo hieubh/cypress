@@ -2,7 +2,7 @@
 
 const returnUrl = 'https://testpages.herokuapp.com/styled/the_form_processor.php';
 const userName = '#_valueusername';
-const password = '#_password';
+const password = '#_valuepassword';
 const valueComment = '#_valuecomments';
 const fileName = '#_filename';
 const valueCheckBox1 = '#_valuecheckboxes0';

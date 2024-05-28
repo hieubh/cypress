@@ -17,7 +17,7 @@ describe('template spec', () => {
     //validate username
     cy.get('#_valueusername').should('contain','username');
     //validate password
-    cy.get('#_password').should('contain','password');
+    cy.get('#_valuepassword').should('have.text','password');
     //validate input comment
     cy.get('#_valuecomments').should('contain','this is a test for this');
     //check photo file name
