@@ -86,20 +86,49 @@ describe('check food', () => {
                     .and('have.css', 'color', 'rgb(255, 255, 255)')
                     .and('have.css', 'background-color', 'rgb(0, 0, 0)')
             })
-        //validate text and button in the center
+        //validate text in the center
         cy.get('#home div:last-child span:first-child').should('be.visible')
             .and('have.attr', 'style', 'font-size:100px')
             .and('have.css', 'text-align', 'center')
             .and('have.css', 'color', 'rgb(255, 255, 255)')
-        //validate button 
+        //validate button under text in the center
         cy.get('#home div:last-child p').should('be.visible')
             .then(() => {
                 cy.get('#home div:last-child p a').should('have.text', 'Let me see the menu')
                     .and('have.attr', 'href', '#menu')
                     .and('have.css', 'color', 'rgb(255, 255, 255)')
                     .and('have.css', 'background-color', 'rgb(0, 0, 0)')
+                    .click()
             })
     })
+
+    it(('validate menu'), () => {
+        cy.visit('https://www.w3schools.com/w3css/tryw3css_templates_pizza.htm')
+        cy.get('#home div:last-child p').click();
+        cy.get('#menu').should('be.visible');
+        //validate header
+        cy.get('#menu>div:first-child>h1').should('be.visible')
+            .and('have.text', 'THE MENU')
+            .and('have.css', 'text-align', 'center')
+            .and('have.css', 'font-size', '64px')
+        //validate menu tabs
+        cy.get('#menu div:nth-child(2)').should('be.visible')
+        cy.get('#menu div:nth-child(2) div').should('have.length',3)
+        cy.get('#menu div:nth-child(2) a:first-child div').then(($el)=> {
+            expect($el.text()).be.equal('Pizza')
+        });
+        cy.get('#menu div:nth-child(2) a:nth-child(2) div').then(($el)=> {
+            expect($el.text()).be.equal('Salads')
+        });
+        cy.get('#menu div:nth-child(2) a:last-child div').then(($el)=> {
+            expect($el.text()).be.equal('Starter')
+        });
+        //validate info when at pizza tabs
+        cy.get('#Pizza').should('be.visible')
+
+    })
+
+
 })
 
 
