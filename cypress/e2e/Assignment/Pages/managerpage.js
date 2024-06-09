@@ -23,6 +23,7 @@ const customersBtn = 'button[ng-class="btnClass3"]';
 //customers btn area upon click
 const searchBar = '.input-group>input';
 const searchTable = 'table';
+const tableBody = 'table tbody > *';
 
 export class ManagerPage {
 
@@ -102,5 +103,8 @@ export class ManagerPage {
         return searchTable;
     }
 
+    get getTableBody() {
+        return tableBody;
+    }
 
 }
