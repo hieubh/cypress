@@ -9,7 +9,6 @@ describe('create new bank account',()=> {
         cy.visit(loginPage.getLoginUrl)
     })
     it('Step 1: Add customer',()=> {
-        const listAlert = []
         cy.get(loginPage.getBankManagerLoginBtn).click()
         //click on Add customer btn
         cy.get(managerPage.getAddCustomerBtn).click()
@@ -27,7 +26,7 @@ describe('create new bank account',()=> {
         cy.get(managerPage.getSubmitBtn)
             .click()
         cy.on('window:alert',(text)=> {
-            listAlert.add(text);
+            expect(['Customer added successfully with customer id :6','Account created successfully with account Number :1016']).be.include(text)
         })
         //Click on open account button
         //select the created account in the bottom of the dropdown list
@@ -40,9 +39,13 @@ describe('create new bank account',()=> {
         cy.get(managerPage.getCurrencyDropdown).select('Pound')
         //click on process button
         cy.get(managerPage.getProcessBtn).click()
-        cy.on('window:alert',(text) =>{
-            listAlert.add(text)
-        })
-        cy.log(listAlert[0])
+        //click on Customers button, search for created account then click delete
+        cy.get(managerPage.getCustomerBtn).click()
+        cy.get(managerPage.getSearchBar).type('Hieu').should('have.value','Hieu')
+        cy.get(managerPage.getTableBody)
+            .should('have.length',1)
+            .then(($el)=> {
+                cy.get($el.find('button')).click()
+            })
     })
-})
+})  
