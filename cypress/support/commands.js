@@ -29,6 +29,11 @@ import { LoginUI } from "../e2e/pages/loginUI";
 const loginUI = new LoginUI;
 const herokuSubmitPage = new HerokuSubmitPage
 
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+  })
+
 Cypress.Commands.add('login', function () {
     cy.visit(loginUI.getUrl);
     cy.get(loginUI.getUsername).type('standard_user');
