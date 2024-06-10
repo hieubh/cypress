@@ -15,8 +15,11 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import './commands-for-assginment'
 import 'cypress-real-events/support'
 import '@4tw/cypress-drag-drop'
+import 'cypress-iframe'
+import '@cypress/puppeteer/support'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
