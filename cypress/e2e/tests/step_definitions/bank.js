@@ -40,7 +40,7 @@ Then('Add Customer related fields are displayed', () => {
             //validate the notch
             cy.get('#notch')
                 .should('be.visible')
-                .and('have.css', 'border-top', '14.4px solid rgb(51, 122, 183)')
+                .and('have.css', 'border-top', '15px solid rgb(51, 122, 183)')
         })
     //validate first name field
     cy.get(managerPage.getFirstNameArea).then(($listElement) => {
@@ -78,22 +78,22 @@ Then('Add Customer related fields are displayed', () => {
         .and('have.text', 'Add Customer')
 })
 
-When('Type in needed information', () => {
+When('Type in needed information: first name is {string}, last name is {string} and postal code is {string}', (firstName, lastName, postalCode) => {
     cy.get(managerPage.getFirstNameTxtField)
-        .type('Hieu')
+        .type(firstName)
     cy.get(managerPage.getLastNameTxtField)
-        .type('Bui')
+        .type(lastName)
     cy.get(managerPage.getPostCodeTxtField)
-        .type('10000')
+        .type(postalCode)
 })
 
-Then('Info is displayed in the input field accordingly', () => {
+Then('Info is displayed in the input field accordingly: first name is {string}, last name is {string} and postal code is {string}', (firstName, lastName, postalCode) => {
     cy.get(managerPage.getFirstNameTxtField)
-        .should('have.value', 'Hieu')
+        .should('have.value', firstName)
     cy.get(managerPage.getLastNameTxtField)
-        .should('have.value', 'Bui')
+        .should('have.value', lastName)
     cy.get(managerPage.getPostCodeTxtField)
-        .should('have.value', 10000)
+        .should('have.value', postalCode)
 })
 
 When('Click on "Add Customer" button', () => {
