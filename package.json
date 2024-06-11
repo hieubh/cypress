@@ -1,0 +1,34 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.5",
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.6",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@cypress/puppeteer": "^0.1.5",
+    "cypress": "^13.10.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-drag-drop": "^1.1.1",
+    "cypress-iframe": "^1.0.1",
+    "cypress-real-events": "^1.12.0"
+  },
+  "dependencies": {
+    "cypress-xpath": "^2.0.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+    "enabled": false,
+    "output": "cypress/cucumberReports/result.json"
+    },
+    "stepDefinitions": [
+    "cypress/e2e/tests/step_definitions/*.{js,ts}"
+    ]
+    }
+}

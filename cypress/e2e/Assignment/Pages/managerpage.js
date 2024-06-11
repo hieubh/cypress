@@ -4,9 +4,9 @@ const buttonBar = '.center > *';
 const addCustomerBtn = 'button[ng-class="btnClass1"]';
 //add custtomer button area upon click
 const firstNameArea = '.form-group:first-child > *';
-const firstNameTxtField = '.form-group:first-child input';
+const firstNameTxtField = '[ng-model="fName"]';
 const lastNameArea = '.form-group:nth-child(2) > *';
-const lastNameTxtField = '.form-group:nth-child(2) input';
+const lastNameTxtField = '[ng-model="lName"]';
 const postCodeArea = '.form-group:last-of-type > *';
 const postCodeTxtField = '.form-group:last-of-type input';
 const submitBtn = 'button[type="submit"]';
