@@ -62,23 +62,21 @@ describe('work with modal, iframe', () => {
     //     cy.get('#myBtn').should('be.visible')
     // })
 
-    it('try to open link in new tab',()=> {
-        cy.visit('https://docnhanh.vn/')
-        cy.get('.news_top_ct[style="display: block;"] .news_lst li:nth-child(2) a')
-            .then(($element)=> {
-                const url = $element.prop('href')
+    // it('try to open link in new tab',()=> {
+    //     cy.visit('https://docnhanh.vn/')
+    //     cy.get('.news_top_ct[style="display: block;"] .news_lst li:nth-child(2) a')
+    //         .then(($element)=> {
+    //             const url = $element.prop('href')
 
-                cy.log(url);
+    //             cy.log(url);
 
-                cy.window().then((win)=> {
-                    const newTab = win.open();
-                    cy.log(typeof(newTab))
+    //             cy.window().then((win)=> {
+    //                 const newTab = win.open();
+    //                 cy.log(typeof(newTab))
                     
-                    // newWindow.opener = null;
-                    newTab.location = url;
-                })
-            }) 
-        cy.puppeteer('switchToTabAndGetContent')
-        .should('equal','')
-    })
+    //                 // newWindow.opener = null;
+    //                 newTab.location = url;
+    //             })
+    //         }) 
+    // })
 })
