@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 import { HerokuSubmitPage } from "../e2e/pages/herokuSubmitPage";
-import { LoginUI } from "../e2e/pages/loginUI";
+import { LoginUI } from "../e2e/pages/loginUISauceDemo";
 
 const loginUI = new LoginUI;
 const herokuSubmitPage = new HerokuSubmitPage
