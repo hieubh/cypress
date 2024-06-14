@@ -4,6 +4,7 @@ import { AdminPage } from "../../pages/OrangeHrm/AdminPage";
 
 const loginPage = new LoginPage
 const adminPage = new AdminPage
+// const infoPage = new InfoPage
 
 Given('User wants to access OrangeHrm site', () => {
 
@@ -16,6 +17,8 @@ Then('Page is loaded properly', ()=> {
     cy.url().should('equal',loginPage.getUrl)
     //There is a banner logo
     cy.get(loginPage.getBannerLogo).should('be.visible')
+    //There is a logo on the right
+    cy.get(loginPage.getRightLogo).should('be.visible')
     //There is header title with value : Login
     cy.get(loginPage.getLoginTitleHeader).should('be.visible')
         .and('have.prop','tagName','H5')
@@ -58,5 +61,17 @@ When('click on Login button', () => {
 
 Then('Login successfully and switch to dashboard page', ()=> {
     cy.url().should('eq',adminPage.getUrl)
+    cy.get(adminPage.getMainContent).should('be.visible')
+    cy.get(adminPage.getuserDropdownIcon).should('be.visible')
+    cy.get(adminPage.getUserDropdownName).should('be.visible')
+    cy.get(adminPage.getSideBar).should('be.visible')
+    cy.request(adminPage.getSideBarLogoUrl).then((response)=> {
+        expect(response.status).to.equal(200);
+    })
+    cy.get(adminPage.getMyInfoOption).should('be.visible')
+})
+
+When ('click on My Info option in left sidebar',()=> {
+    cy.get(adminPage.getMyInfoOption).click()
 })
 

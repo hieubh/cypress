@@ -24,7 +24,7 @@ export class AdminPage {
         return userDropdown;
     }
     
-    get userDropdownIcon () {
+    get getuserDropdownIcon () {
         return userDropdownIcon;
     }
 
