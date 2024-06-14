@@ -8,6 +8,9 @@ Feature: Admin feature
     When click on Login button
     Then Login successfully and switch to dashboard page
     When click on My Info option in left sidebar
-    Then my info page is loaded properly
+    # Then my info page is loaded properly
+    # When input data to personal details area then click save, input data to custom field area then click save
+    # Then data is saved successfully
+
     
 

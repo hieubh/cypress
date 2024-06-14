@@ -1,5 +1,6 @@
 const url = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
 const bannerLogo = '.orangehrm-login-branding';
+const rightLogo = '.orangehrm-login-logo';
 const loginTitleHeader = '.orangehrm-login-slot > *:nth-child(2)';
 const loginInputArea = '.orangehrm-login-form';
 const providedCredentialArea = '.orangehrm-login-error';
@@ -29,6 +30,10 @@ export class LoginPage {
     get getBannerLogo() {
         return bannerLogo;
         
+    }
+
+    get getRightLogo() {
+        return rightLogo;
     }
 
     get getLoginTitleHeader() {
@@ -92,6 +97,5 @@ export class LoginPage {
 
 
 
-const rightLogo = '.orangehrm-login-logo';
 
 
