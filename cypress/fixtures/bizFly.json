@@ -1,0 +1,12 @@
+{
+    "credentials": {
+        "username":"techtest.rd2@gmail.com",
+        "password":"A123456!"
+    },
+
+    "newProduct":{
+        "code":"104",
+        "name":"San pham moi",
+        "price":10000
+    }
+}
