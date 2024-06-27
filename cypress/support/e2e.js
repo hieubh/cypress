@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import './commands-for-assginment'
+import './generateData'
 import 'cypress-real-events/support'
 import '@4tw/cypress-drag-drop'
 import 'cypress-iframe'
